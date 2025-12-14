@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách Tour - Wetravel</title>
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Bookingtour.css">
+    
+</head>
+<body>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/2169880/2169880-hd_1920_1080_30fps.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+
+         <header>
+            <div class="header-top">
+                <div class="logo"></div>
+                
+                <div class="nav-icons">
+                    <i class="fa-regular fa-user" onclick="toggleAuthModal()" title="Đăng nhập"></i>
+                    <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+                </div>
+
+                <ul id="navMenu">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="AboutUs.html">Giới thiệu</a></li>
+                    <li><a href="Location.html">Địa điểm</a></li>
+                    <li><a href="Bookingtour.html" style="color:var(--main-color)">Đặt Tour</a></li>
+                    <li><a href="Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="header-content">
+                <h1>WETRAVEL</h1>
+                <p>Chu du mọi nơi ở Việt Nam</p>
+            </div>
+        </header>
+    </div>
+    <div class="page" id="tours">
+        <div class="container">
+            <div class="section-title">CÁC TOUR NỔI BẬT</div>
+            <div class="section-desc">Giá đã bao gồm vé máy bay/xe khứ hồi. Khởi hành hàng tuần.</div>
+
+            <div class="cards">
+                <div class="card">
+                    <img src="../picture/m_Sapa_3_l_662_1000.webp" alt="Sapa" class="card-img">
+                    <div class="card-body">
+                        <h4>TPHCM - Hà Nội - Sa Pa</h4>
+                        <p>3 Ngày 2 Đêm | Máy bay + Xe<br>Check-in bản Cát Cát, đỉnh Fansipan, Thác Bạc.</p>
+                        <span class="price-tag">5.990.000₫</span>
+                        <a href="../list/booking_sapa.html" class="btn-action">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/vinh-Ha-long-2-20200706112849136.jpeg" alt="Hạ Long" class="card-img">
+                    <div class="card-body">
+                        <h4>TPHCM - Hạ Long</h4>
+                        <p>3 Ngày 2 Đêm | Máy bay<br>Thăm hang Sửng Sốt, Vân Đồn, Đảo Ti Tốp.</p>
+                        <span class="price-tag">6.990.000₫</span>
+                        <a href="../list/booking_vinhhalong.html" class="btn-action">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/nha-trang-2.png" alt="Nha Trang" class="card-img">
+                    <div class="card-body">
+                        <h4>TPHCM - Nha Trang</h4>
+                        <p>3 Ngày 2 Đêm | Xe giường nằm/Tàu hỏa<br>Cam Ranh, Tháp Bà Ponagar, Vinwwonders, Du ngoạn 3 đảo, chùa Long Sơn, Chợ Đầm</p>
+                        <span class="price-tag">3.990.000₫</span>
+                        <a href="../list/booking_nhatrang.html" class="btn-action">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/hcm(1).jpg" alt="TPHCM" class="card-img">
+                    <div class="card-body">
+                        <h4>Sài Gòn - Củ Chi</h4>
+                        <p>1 Ngày | Xe Limousine<br>Địa đạo Củ Chi, SKYDECK LANDMARK 81, chợ Lớn.</p>
+                        <span class="price-tag">2.590.000₫</span>
+                        <a href="../list/booking_tphcm.html" class="btn-action">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/R (1).jpg" alt="Cao Bằng" class="card-img">
+                    <div class="card-body">
+                        <h4>TPHCM - Cao Bằng - Lạng Sơn</h4>
+                        <p>4 Ngày 3 Đêm | Máy bay + Xe<br>Thác Bản Giốc, Hang Pác Bó, Động Ngườm Ngao.</p>
+                        <span class="price-tag">6.890.000₫</span>
+                        <a href="../list/booking_caobanglangson.html" class="btn-action">Xem chi tiết</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/R.jpg" alt="Đà Nẵng" class="card-img">
+                    <div class="card-body">
+                        <h4>TPHCM - Đà Nẵng</h4>
+                        <p>3 Ngày 2 Đêm | Máy bay<br>Bà Nà Hills, cầu Rồng Phun Lửa, Nhà thờ màu hồng, chợ Hàn.</p>
+                        <span class="price-tag">4.990.000₫</span>
+                        <a href="../list/booking_danang.html" class="btn-action">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <span class="close-auth" onclick="toggleAuthModal()">&times;</span>
+
+            <div class="auth-header-title">
+                <h2>WETRAVEL</h2>
+                <p>Chào mừng bạn trở lại!</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Đăng nhập</div>
+                <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Đăng ký</div>
+            </div>
+
+            <form class="auth-form active" id="form-login">
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email của bạn..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Nhớ mật khẩu</label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng nhập thành công!')">ĐĂNG NHẬP</button>
+                <div class="divider"><span>Hoặc</span></div>
+            </form>
+
+            <form class="auth-form" id="form-register">
+                <div class="form-group">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Họ và tên..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-check-double"></i>
+                    <input type="password" placeholder="Nhập lại mật khẩu..." required>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng ký thành công!')">TẠO TÀI KHOẢN</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+        function toggleAuthModal() {
+            var modal = document.getElementById('authModal');
+            if (modal) modal.classList.toggle('open');
+        }
+    </script>
+    
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>WETRAVEL</h3>
+            <p>Chu du mọi nơi ở Việt Nam. Chúng tôi cam kết mang đến những trải nghiệm du lịch tuyệt vời nhất với giá cả hợp lý.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Liên kết nhanh</h3>
+            <ul>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="AboutUs.html">Giới thiệu</a></li>
+                <li><a href="Bookingtour.html">Đặt Tour</a></li>
+                <li><a href="Contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Thông tin liên hệ</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Đường Du Lịch, Quận 12, TP. HCM</p>
+            <p><i class="fa-solid fa-envelope"></i> WEtravel@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> 0900 123 456</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 WETRAVEL. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về Wetravel - Wetravel</title>
+    <link rel="stylesheet" href="auth.css"> <script src="auth.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="Contact.css">
+</head>
+<body>
+ <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/2169880/2169880-hd_1920_1080_30fps.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+
+         <header>
+            <div class="header-top">
+                <div class="logo"></div>
+                
+                <div class="nav-icons">
+                    <i class="fa-regular fa-user" onclick="toggleAuthModal()" title="Đăng nhập"></i>
+                    <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+                </div>
+
+                <ul id="navMenu">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="AboutUs.html">Giới thiệu</a></li>
+                    <li><a href="Location.html">Địa điểm</a></li>
+                    <li><a href="Bookingtour.html">Đặt Tour</a></li>
+                    <li><a href="Contact.html"" style="color:var(--main-color)">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="header-content">
+                <h1>WETRAVEL</h1>
+                <p>Chu du mọi nơi ở Việt Nam</p>
+            </div>
+        </header>
+    </div>
+  <div class="container">
+    <h1>Liên hệ với chúng tôi</h1>
+    <p class="lead">Hãy kết nối để cùng nhau lên kế hoạch cho hành trình du lịch đáng nhớ.</p>
+
+    <div class="contact-info">
+      <h2>Thông tin liên hệ</h2>
+      <p><strong>Địa chỉ:</strong> 123 Đường Du Lịch, Quận 12, TP. HCM</p>
+      <p><strong>Email:</strong> WEtravel@gmail.com</p>
+      <p><strong>Hotline:</strong> 0900 123 456</p>
+    </div>
+
+    <form>
+      <h3>Đánh giá trải nghiệm</h3>
+      <p>hãy để trải nghiệm của bạn, những đóng góp của bạn là thứ mà chúng tôi cải thiện trong tương lai</p>
+      <label for="name">Họ và tên</label>
+      <input type="text" id="name" name="name" placeholder="Nhập họ tên của bạn" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required />
+
+      <label for="message">Nội dung</label>
+      <textarea id="message" name="message" placeholder="Viết tin nhắn..." required></textarea>
+
+      <button type="submit">Gửi liên hệ</button>
+    </form>
+  </div>
+  
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <span class="close-auth" onclick="toggleAuthModal()">&times;</span>
+
+            <div class="auth-header-title">
+                <h2>WETRAVEL</h2>
+                <p>Chào mừng bạn trở lại!</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Đăng nhập</div>
+                <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Đăng ký</div>
+            </div>
+
+            <form class="auth-form active" id="form-login">
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email của bạn..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Nhớ mật khẩu</label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng nhập thành công!')">ĐĂNG NHẬP</button>
+            </form>
+
+            <form class="auth-form" id="form-register">
+                <div class="form-group">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Họ và tên..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-check-double"></i>
+                    <input type="password" placeholder="Nhập lại mật khẩu..." required>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng ký thành công!')">TẠO TÀI KHOẢN</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cartModal" style="display:none;"> </div>
+    
+    <style>
+        .cart-modal {
+            position: fixed; top: 0; right: -400px; width: 350px; height: 100vh;
+            background: #fff; box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            z-index: 200; transition: 0.4s; padding: 20px;
+            display: flex; flex-direction: column;
+        }
+        .cart-modal.open { right: 0; display: flex !important; }
+        .cart-header { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .cart-items { flex: 1; overflow-y: auto; margin-top: 20px; }
+        .cart-footer { border-top: 1px solid #eee; padding-top: 10px; }
+        .btn-checkout { width: 100%; padding: 10px; background: #333; color: white; border: none; cursor: pointer; }
+    </style>
+
+    <script>
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+        function toggleAuthModal() {
+            var modal = document.getElementById('authModal');
+            if (modal) modal.classList.toggle('open');
+        }
+    </script>
+
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>WETRAVEL</h3>
+            <p>Chu du mọi nơi ở Việt Nam. Chúng tôi cam kết mang đến những trải nghiệm du lịch tuyệt vời nhất với giá cả hợp lý.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Liên kết nhanh</h3>
+            <ul>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="AboutUs.html">Giới thiệu</a></li>
+                <li><a href="Bookingtour.html">Đặt Tour</a></li>
+                <li><a href="Contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Thông tin liên hệ</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Đường Du Lịch, Quận 12, TP. HCM</p>
+            <p><i class="fa-solid fa-envelope"></i> WEtravel@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> 0900 123 456</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 WETRAVEL. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

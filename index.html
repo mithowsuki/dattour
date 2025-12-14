@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ - Wetravel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="code/tour.css">
+</head>
+
+<body>
+
+    <div class="video-container">
+        <video src="./picture/1128.mp4" autoplay loop muted></video>
+
+        <header>
+            <div class="header-top">
+                <div class="logo">
+                    <h2 style="color:var(--main-color); font-weight:900;">WETRAVEL</h2>
+                </div>
+
+                <div class="nav-icons">
+                    <i class="fa-regular fa-user" onclick="toggleAuthModal()" title="Đăng nhập"></i>
+
+                    <i class="fa-solid fa-bars menu-toggle" onclick="toggleMenu()"></i>
+                </div>
+
+                <ul id="navMenu">
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="code/AboutUs.html">Giới thiệu</a></li>
+                    <li><a href="code/Location.html">Địa điểm</a></li>
+                    <li><a href="code/Bookingtour.html">Đặt Tour</a></li>
+                    <li><a href="code/Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>KHÁM PHÁ</h1>
+                    <p>Chu du mọi nơi trên Việt Nam</p>
+                </div>
+
+                <form class="booking-form" onsubmit="event.preventDefault(); searchTour();">
+                    <h1>Nơi bạn muốn đến</h1>
+
+                    <label>Địa điểm</label>
+                    <select id="locationSelect" required>
+                        <option value="">-- Chọn địa điểm --</option>
+                        <option value="sg">Hồ Chí Minh</option>
+                        <option value="hn">Nha Trang</option>
+                        <option value="dn">Đà Nẵng</option>
+                        <option value="cbls">Cao Bằng - Lạng Sơn</option>
+                        <option value="sp">Sa Pa</option>
+                        <option value="vhl">Vịnh Hạ Long</option>
+                    </select>
+
+                    <label>Số người</label>
+                    <input type="number" min="1" placeholder="Nhập số người...">
+
+                    <div class="input-group">
+                        <div>
+                            <label>Ngày đi</label>
+                            <input type="date">
+                        </div>
+                        <div>
+                            <label>Ngày về</label>
+                            <input type="date">
+                        </div>
+                    </div>
+
+                    <button type="submit">TÌM KIẾM</button>
+                </form>
+            </div>
+        </header>
+    </div>
+
+  
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <span class="close-auth" onclick="toggleAuthModal()">&times;</span>
+
+            <div class="auth-header-title">
+                <h2>WETRAVEL</h2>
+                <p>Chào mừng bạn trở lại!</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Đăng nhập</div>
+                <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Đăng ký</div>
+            </div>
+
+            <form class="auth-form active" id="form-login">
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email của bạn..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                
+                <div class="form-options">
+                    <label><input type="checkbox"> Nhớ mật khẩu</label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+
+                <button type="button" class="btn-auth" onclick="alert('Đăng nhập thành công (Demo)!')">ĐĂNG NHẬP</button>
+            </form>
+
+            <form class="auth-form" id="form-register">
+                <div class="form-group">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Họ và tên..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-check-double"></i>
+                    <input type="password" placeholder="Nhập lại mật khẩu..." required>
+                </div>
+
+                <button type="button" class="btn-auth" onclick="alert('Đăng ký thành công!')">TẠO TÀI KHOẢN</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('navMenu');
+            var icon = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+
+            if (menu.classList.contains('active')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        }
+        function toggleAuthModal() {
+            document.getElementById('authModal').classList.toggle('open');
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+
+            document.getElementById('form-' + tabName).classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        function toggleCart() {
+            document.getElementById('cartModal').classList.toggle('open');
+        }
+
+        function searchTour() {
+            var locationValue = document.getElementById('locationSelect').value;
+            var url = "";
+            switch (locationValue) {
+                case "sg": url = "list/booking_tphcm.html"; break;
+                case "hn": url = "list/booking_nhatrang.html"; break;
+                case "dn": url = "list/booking_danang.html"; break;
+                case "cbls": url = "list/booking_caobanglangson.html"; break;
+                case "sp": url = "list/booking_sapa.html"; break;
+                case "vhl": url = "list/booking_vinhhalong.html"; break;
+                default: alert("Vui lòng chọn địa điểm!"); return;
+            }
+            if (url) window.location.href = url;
+        } 
+    </script>
+</body>
+
+</html>

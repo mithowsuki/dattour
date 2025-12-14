@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour TP.HCM - Sapa - Fansipan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="booking.css">
+    <link rel="stylesheet" href="../code/footer.css">
+</head>
+<body>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="../picture/sp.mp4" type="video/mp4">
+        </video>
+
+        <header>
+            <div class="header-top">
+                <div class="logo"></div>
+                
+                <div class="nav-icons">
+                    <i class="fa-regular fa-user" onclick="toggleAuthModal()" title="Đăng nhập"></i>
+
+                    <div style="position: relative; cursor: pointer;" onclick="toggleCart()">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </div>
+                    <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+                </div>
+
+                <ul id="navMenu">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="../code/AboutUs.html">Giới thiệu</a></li>
+                    <li><a href="../code/Location.html">Địa điểm</a></li>
+                    <li><a href="../code/Bookingtour.html" style="color:var(--main-color)">Đặt Tour</a></li>
+                    <li><a href="../code/Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="header-content">
+                <h1>TP.HCM - HÀ NỘI - SAPA</h1>
+                <p>Bay cùng mây - Chinh phục nóc nhà Đông Dương</p>
+            </div>
+        </header>
+    </div>
+
+    <div class="tour-container">
+        
+        <div class="tour-info">
+            <h2>Hành trình Phương Nam du ngoạn Tây Bắc</h2>
+            
+            <div class="tour-highlight">
+                <div class="highlight-item"><i class="fa-regular fa-clock"></i> 3 Ngày 2 Đêm</div>
+                <div class="highlight-item"><i class="fa-solid fa-plane-departure"></i> Máy bay + Xe VIP</div>
+                <div class="highlight-item"><i class="fa-solid fa-location-dot"></i> Khởi hành: TP.HCM</div>
+            </div>
+
+            <h3>Lịch trình chi tiết</h3>
+            <br>
+            <div class="itinerary-box">
+                <div class="day-title">NGÀY 1: TP.HCM - NỘI BÀI - SAPA - HÀM RỒNG</div>
+                <p class="day-desc">
+                    <strong>Sáng:</strong> HDV đón đoàn tại sân bay Tân Sơn Nhất, làm thủ tục bay đi Hà Nội. Xe giường nằm đón tại Nội Bài đi thẳng Sapa.<br>
+                    <strong>Trưa:</strong> Đến Sapa, ăn trưa với đặc sản Thắng cố/Lẩu cá hồi. Nhận phòng nghỉ ngơi.<br>
+                    <strong>Chiều:</strong> Chinh phục <strong>Núi Hàm Rồng</strong>, ngắm vườn lan, Cổng Trời và toàn cảnh thị trấn trong sương.<br>
+                    <strong>Tối:</strong> Tự do dạo phố Cầu Mây, Nhà Thờ Đá. Thưởng thức đồ nướng, trứng nướng Sapa.
+                </p>
+            </div>
+            <div class="itinerary-box">
+                <div class="day-title">NGÀY 2: CHINH PHỤC FANSIPAN - BẢN CÁT CÁT</div>
+                <p class="day-desc">
+                    <strong>Sáng:</strong> Xe đưa đoàn ra ga cáp treo. Trải nghiệm hệ thống cáp treo 3 dây hiện đại nhất thế giới lên đỉnh <strong>Fansipan (3.143m)</strong>. Săn mây và chiêm bái quần thể tâm linh.<br>
+                    <strong>Trưa:</strong> Dùng bữa trưa buffet tại nhà hàng Vân Sam.<br>
+                    <strong>Chiều:</strong> Trekking thăm <strong>Bản Cát Cát</strong> của người H'Mông, check-in thác Tiên Sa, cối xay nước.<br>
+                    <strong>Tối:</strong> Nghỉ đêm tại khách sạn 3-4 sao trung tâm.
+                </p>
+            </div>
+            <div class="itinerary-box">
+                <div class="day-title">NGÀY 3: MOANA/SWING SAPA - NỘI BÀI - TP.HCM</div>
+                <p class="day-desc">
+                    <strong>Sáng:</strong> Ăn sáng. Tự do mua sắm đặc sản (Hạt dẻ, trâu gác bếp) tại Chợ Sapa. Hoặc check-in khu du lịch Moana (Tiểu Bali).<br>
+                    <strong>Trưa:</strong> Trả phòng, ăn trưa nhẹ. Lên xe Limousine về lại sân bay Nội Bài.<br>
+                    <strong>Chiều:</strong> Làm thủ tục chuyến bay chiều tối về TP.HCM.<br>
+                    <strong>Tối:</strong> Về đến Tân Sơn Nhất. Kết thúc hành trình khám phá Tây Bắc.
+                </p>
+            </div>
+        </div>
+
+        <div class="booking-sidebar">
+            <span class="price-tag price-highlight">5.990.000₫ <span>/ khách</span></span>
+            
+            <form id="bookingForm" onsubmit="event.preventDefault(); addToCart();">
+                <div class="form-group">
+                    <label>Ngày khởi hành</label>
+                    <input type="date" id="startDate" required onchange="calculateEndDate()">
+                </div>
+
+                <div class="form-group">
+                    <label>Ngày về</label>
+                    <input type="date" id="endDate" readonly style="background-color: #e9ecef;">
+                </div>
+
+                <div class="form-group">
+                    <label>Số người lớn</label>
+                    <input type="number" id="adults" value="1" min="1" onchange="updateTotal()" required>
+                </div>
+
+                <div class="total-price">
+                    Tổng tiền: <span id="totalDisplay" class="price-highlight">5.990.000₫</span>
+                </div>
+
+                <button class="btn-add-cart">THÊM VÀO GIỎ</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <span class="close-auth" onclick="toggleAuthModal()">&times;</span>
+
+            <div class="auth-header-title">
+                <h2>WETRAVEL</h2>
+                <p>Chào mừng bạn trở lại!</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Đăng nhập</div>
+                <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Đăng ký</div>
+            </div>
+
+            <form class="auth-form active" id="form-login">
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email của bạn..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Nhớ mật khẩu</label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng nhập thành công!')">ĐĂNG NHẬP</button>
+            </form>
+
+            <form class="auth-form" id="form-register">
+                <div class="form-group">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Họ và tên..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-check-double"></i>
+                    <input type="password" placeholder="Nhập lại mật khẩu..." required>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng ký thành công!')">TẠO TÀI KHOẢN</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-header">
+            <h3>Giỏ hàng của bạn</h3>
+            <i class="fa-solid fa-times" onclick="toggleCart()" style="cursor: pointer; font-size: 20px;"></i>
+        </div>
+        <div class="cart-items" id="cartItemsContainer">
+            <p style="text-align: center; color: #999; margin-top: 50px;">Giỏ hàng trống</p>
+        </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: bold;">
+                <span>Tạm tính:</span><span id="cartTotal">0₫</span>
+            </div>
+            <button class="btn-checkout" onclick="checkout()">THANH TOÁN</button>
+        </div>
+    </div>
+
+    <script>
+        const pricePerPerson = 5990000; 
+        const CART_KEY = 'wetravel_guest_cart';
+
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+        
+        function toggleCart() { 
+            document.getElementById('cartModal').classList.toggle('open'); 
+            renderCart(); 
+        }
+
+        function toggleAuthModal() {
+            var modal = document.getElementById('authModal');
+            if (modal) modal.classList.toggle('open');
+        }
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+            document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+            document.getElementById('form-' + tabName).classList.add('active');
+            document.getElementById('tab-' + tabName).classList.add('active');
+        }
+
+        function updateTotal() {
+            let count = document.getElementById('adults').value;
+            let total = count * pricePerPerson;
+            document.getElementById('totalDisplay').innerText = total.toLocaleString('vi-VN') + '₫';
+        }
+
+        function calculateEndDate() {
+            let startInput = document.getElementById('startDate').value;
+            if(startInput) {
+                let date = new Date(startInput);
+                date.setDate(date.getDate() + 2); 
+                let d = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+                document.getElementById('endDate').value = d;
+            }
+        }
+        
+        function getCart() {
+            let json = localStorage.getItem(CART_KEY);
+            return json ? JSON.parse(json) : [];
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(CART_KEY, JSON.stringify(cart));
+            updateCartCount();
+        }
+
+        function addToCart() {
+            let dateStart = document.getElementById('startDate').value;
+            let dateEnd = document.getElementById('endDate').value;
+            let people = document.getElementById('adults').value;
+            
+            if(!dateStart) { alert("Vui lòng chọn ngày khởi hành!"); return; }
+
+            let newItem = {
+                tourName: "Tour TP.HCM - Sapa - Fansipan (Trọn gói)",
+                startDate: dateStart,
+                endDate: dateEnd,
+                people: parseInt(people),
+                totalPrice: people * pricePerPerson,
+                image: "../picture/m_Sapa_3_l_662_1000.webp"
+            };
+
+            let cart = getCart();
+            cart.push(newItem);
+            saveCart(cart);
+
+            alert("Đã thêm Tour Sapa (Bay) vào giỏ!");
+            toggleCart();
+        }
+
+        function renderCart() {
+            let container = document.getElementById('cartItemsContainer');
+            let totalDisplay = document.getElementById('cartTotal');
+            let cart = getCart();
+
+            container.innerHTML = "";
+            
+            if(cart.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #999; margin-top: 50px;">Giỏ hàng trống</p>';
+                totalDisplay.innerText = "0₫";
+                return;
+            }
+
+            let grandTotal = 0;
+            
+            cart.forEach((item, index) => {
+                grandTotal += item.totalPrice;
+                let html = `
+                    <div class="cart-item">
+                        <img src="${item.image}" alt="Tour" style="width:60px; height:60px; object-fit:cover; border-radius:5px;">
+                        
+                        <div class="item-details" style="flex:1;">
+                            <h4 style="font-size:14px; margin:0; line-height:1.2;">${item.tourName}</h4>
+                            <p style="font-size:12px; color:#666; margin:4px 0;">Ngày đi: ${item.startDate}</p>
+                            <p style="font-size:13px; margin:0; font-weight:bold;">
+                                ${item.people} khách | <span style="color:#264653">${item.totalPrice.toLocaleString()}₫</span>
+                            </p>
+                        </div>
+
+                        <i class="fa-solid fa-trash-can delete-btn" 
+                           onclick="removeItem(${index})" 
+                           title="Xóa tour này"></i>
+                    </div>
+                `;
+                container.innerHTML += html;
+            });
+            
+            totalDisplay.innerText = grandTotal.toLocaleString('vi-VN') + '₫';
+        }
+
+        function removeItem(index) {
+            if(confirm("Bạn có chắc muốn xóa tour này khỏi giỏ hàng?")) {
+                let cart = getCart();
+                cart.splice(index, 1);
+                saveCart(cart);
+                renderCart();
+            }
+        }
+
+        function updateCartCount() {
+            let cart = getCart();
+            let countSpan = document.getElementById('cartCount');
+            if(cart.length > 0) {
+                countSpan.innerText = cart.length;
+                countSpan.style.display = 'block';
+            } else {
+                countSpan.style.display = 'none';
+            }
+        }
+
+        function checkout() {
+            let cart = getCart();
+            if(cart.length === 0) { alert("Giỏ hàng trống!"); return; }
+            if(confirm("Xác nhận thanh toán?")) {
+                alert("Đặt tour thành công! Nhân viên sẽ liên hệ vé máy bay cho bạn.");
+                localStorage.removeItem(CART_KEY);
+                saveCart([]);
+                toggleCart();
+            }
+        }
+
+        window.onload = updateCartCount;
+    </script>
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>WETRAVEL</h3>
+            <p>Chu du mọi nơi ở Việt Nam. Chúng tôi cam kết mang đến những trải nghiệm du lịch tuyệt vời nhất với giá cả hợp lý.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Liên kết nhanh</h3>
+            <ul>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="../code/AboutUs.html">Giới thiệu</a></li>
+                <li><a href="../code/Bookingtour.html">Đặt Tour</a></li>
+                <li><a href="../code/Contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Thông tin liên hệ</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Đường Du Lịch, Quận 12, TP. HCM</p>
+            <p><i class="fa-solid fa-envelope"></i> WEtravel@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> 0900 123 456</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 WETRAVEL. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

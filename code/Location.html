@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Địa điểm - Wetravel</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="Location.css">
+    <link rel="stylesheet" href="footer.css">
+</head>
+<body>
+    
+    <div class="video-container">
+        <video autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/2169880/2169880-hd_1920_1080_30fps.mp4" type="video/mp4">
+            Trình duyệt của bạn không hỗ trợ video.
+        </video>
+
+         <header>
+            <div class="header-top">
+                <div class="logo"></div>
+                
+                <div class="nav-icons">
+                    <i class="fa-regular fa-user" onclick="toggleAuthModal()" title="Đăng nhập"></i>
+                    <i class="fa-solid fa-bars" onclick="toggleMenu()"></i>
+                </div>
+
+                <ul id="navMenu">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a href="AboutUs.html">Giới thiệu</a></li>
+                    <li><a href="Location.html" style="color:var(--main-color)">Địa điểm</a></li>
+                    <li><a href="Bookingtour.html">Đặt Tour</a></li>
+                    <li><a href="Contact.html">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="header-content">
+                <h1>WETRAVEL</h1>
+                <p>Chu du mọi nơi ở Việt Nam</p>
+            </div>
+        </header>
+    </div>
+
+    <div class="page-content">
+        <div class="container">
+            <h1 class="page-title">Địa điểm Việt Nam</h1>
+            <p class="lead">Khám phá những điểm đến nổi bật mang đậm bản sắc văn hóa và thiên nhiên Việt Nam.</p>
+
+            <div class="grid">
+                <div class="card">
+                    <img src="../picture/vinh-Ha-long-2-20200706112849136.jpeg" alt="Vịnh Hạ Long" />
+                    <div class="card-content">
+                        <h3>Vịnh Hạ Long</h3>
+                        <p>Kỳ quan thiên nhiên thế giới với hàng nghìn hòn đảo đá vôi kỳ vĩ trên biển xanh.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/nha-trang-2.png" alt="Nha Trang" />
+                    <div class="card-content">
+                        <h3>Nha Trang</h3>
+                        <p>Thành phố biển xinh đẹp thuộc tỉnh Khánh Hòa, nổi tiếng với vịnh biển trong xanh, bãi cát trắng mịn, khí hậu ôn hòa, cảnh quan thiên nhiên tươi đẹp và nền văn hóa Chăm pa cổ kính</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/m_Sapa_3_l_662_1000.webp" alt="Sa Pa" />
+                    <div class="card-content">
+                        <h3>Sa Pa</h3>
+                        <p>Thị trấn miền núi với ruộng bậc thang tuyệt đẹp và văn hóa đa dạng của các dân tộc.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/hcm(1).jpg" alt="TP Hồ Chí Minh" />
+                    <div class="card-content">
+                        <h3>TP. Hồ Chí Minh</h3>
+                        <p>Thành phố năng động bậc nhất, nơi giao thoa giữa văn hóa cổ điển và hiện đại.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/R (1).jpg" alt="Cao Bằng">
+                    <div class="card-content">
+                        <h3>Cao Bằng - Lạng Sơn</h3>
+                        <p>Vùng đất biên cương hùng vĩ với Thác Bản Giốc và các di tích lịch sử.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="../picture/R.jpg" alt="Đà Nẵng" />
+                    <div class="card-content">
+                        <h3>Đà Nẵng</h3>
+                        <p>Thành phố biển năng động với bãi biển Mỹ Khê, cầu Rồng và Bà Nà Hills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <span class="close-auth" onclick="toggleAuthModal()">&times;</span>
+
+            <div class="auth-header-title">
+                <h2>WETRAVEL</h2>
+                <p>Chào mừng bạn trở lại!</p>
+            </div>
+
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="tab-login" onclick="switchTab('login')">Đăng nhập</div>
+                <div class="auth-tab" id="tab-register" onclick="switchTab('register')">Đăng ký</div>
+            </div>
+
+            <form class="auth-form active" id="form-login">
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email của bạn..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-options">
+                    <label><input type="checkbox"> Nhớ mật khẩu</label>
+                    <a href="#">Quên mật khẩu?</a>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng nhập thành công!')">ĐĂNG NHẬP</button>
+            </form>
+
+            <form class="auth-form" id="form-register">
+                <div class="form-group">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Họ và tên..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Email..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Mật khẩu..." required>
+                </div>
+                <div class="form-group">
+                    <i class="fa-solid fa-check-double"></i>
+                    <input type="password" placeholder="Nhập lại mật khẩu..." required>
+                </div>
+                <button type="button" class="btn-auth" onclick="alert('Đăng ký thành công!')">TẠO TÀI KHOẢN</button>
+            </form>
+        </div>
+    </div>
+
+    <style>
+        .cart-modal {
+            position: fixed; top: 0; right: -400px; width: 350px; height: 100vh;
+            background: #fff; box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+            z-index: 200; transition: 0.4s; padding: 20px;
+            display: flex; flex-direction: column;
+        }
+        .cart-modal.open { right: 0; display: flex !important; }
+        .cart-header { display: flex; justify-content: space-between; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .cart-items { flex: 1; overflow-y: auto; margin-top: 20px; }
+        .cart-footer { border-top: 1px solid #eee; padding-top: 10px; }
+        .btn-checkout { width: 100%; padding: 10px; background: #333; color: white; border: none; cursor: pointer; }
+    </style>
+
+    <script>
+        function toggleMenu() { document.getElementById('navMenu').classList.toggle('active'); }
+        function toggleAuthModal() {
+            var modal = document.getElementById('authModal');
+            if (modal) modal.classList.toggle('open');
+        }
+    </script>
+
+    <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-col">
+            <h3>WETRAVEL</h3>
+            <p>Chu du mọi nơi ở Việt Nam. Chúng tôi cam kết mang đến những trải nghiệm du lịch tuyệt vời nhất với giá cả hợp lý.</p>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Liên kết nhanh</h3>
+            <ul>
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li><a href="AboutUs.html">Giới thiệu</a></li>
+                <li><a href="Bookingtour.html">Đặt Tour</a></li>
+                <li><a href="Contact.html">Liên hệ</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Thông tin liên hệ</h3>
+            <p><i class="fa-solid fa-location-dot"></i> 123 Đường Du Lịch, Quận 12, TP. HCM</p>
+            <p><i class="fa-solid fa-envelope"></i> WEtravel@gmail.com</p>
+            <p><i class="fa-solid fa-phone"></i> 0900 123 456</p>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 WETRAVEL. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
